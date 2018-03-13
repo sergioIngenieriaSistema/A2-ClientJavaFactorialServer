@@ -26,21 +26,6 @@ public interface FactorialWebService {
 
     /**
      * 
-     * @param factorial
-     * @return
-     *     returns int
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "factorial", targetNamespace = "http://services/", className = "services.Factorial")
-    @ResponseWrapper(localName = "factorialResponse", targetNamespace = "http://services/", className = "services.FactorialResponse")
-    @Action(input = "http://services/FactorialWebService/factorialRequest", output = "http://services/FactorialWebService/factorialResponse")
-    public int factorial(
-        @WebParam(name = "factorial", targetNamespace = "")
-        int factorial);
-
-    /**
-     * 
      * @param name
      * @return
      *     returns java.lang.String
@@ -53,5 +38,20 @@ public interface FactorialWebService {
     public String hello(
         @WebParam(name = "name", targetNamespace = "")
         String name);
+
+    /**
+     * 
+     * @param factorial
+     * @return
+     *     returns int
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "factorial", targetNamespace = "http://services/", className = "services.Factorial")
+    @ResponseWrapper(localName = "factorialResponse", targetNamespace = "http://services/", className = "services.FactorialResponse")
+    @Action(input = "http://services/FactorialWebService/factorialRequest", output = "http://services/FactorialWebService/factorialResponse")
+    public int factorial(
+        @WebParam(name = "factorial", targetNamespace = "")
+        int factorial);
 
 }
